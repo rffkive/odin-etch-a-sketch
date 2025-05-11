@@ -9,12 +9,15 @@
         <div id="container"></div>
         <script>
             const container = document.querySelector("#container");
-            const box = document.createElement("div");
-
-            container.appendChild(box);
-            box.setAttribute("style", "box-sizing: border-box; border: 1px solid ; width: 40px; height: 40px;");
+            
             container.setAttribute("style", "box-sizing: border-box; border: 1px solid ; border-width: thick ; width: 640px; height: 640px; color: gray; ");
             
+            for (let i=0; i < 156; i++ ) {
+                const box = document.createElement("div");
+                box.setAttribute("style", "box-sizing: border-box; border: 1px solid ; width: 40px; height: 40px;");
+                container.appendChild(box);
+                box.classList.add('square');
+            }
 
         </script>
 </body>
