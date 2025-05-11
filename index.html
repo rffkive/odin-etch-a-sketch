@@ -38,7 +38,6 @@
             
             function setGrid (size) {
                 container.innerHTML = '';
-                const totalBorder = containerSize - 2 * border;
                 const squareSize = containerSize / size;
                 
                 for (let i=0; i < size * size; i++ ) {
@@ -50,7 +49,6 @@
                 height: ${squareSize}px;`);
 
                 box.addEventListener ("mouseenter", (e) => {
-                    const randomColor = 
                     box.style.backgroundColor = getRandomColor();
                 });
                 container.appendChild(box);
