@@ -9,22 +9,30 @@
         <div id="container"></div>
         <script>
             const container = document.querySelector("#container");
-            
-            const gridSize = 16;
-            const containerSize = 640;
-            const squareSize = containerSize / gridSize;
+            const numberButton = document.createElement("button");
+            numberButton.textContent = "Resize Grid";
+
+            document.body.insertBefore(numberButton, container);
+
+            let gridSize = 16;
+            let containerSize = 640;
             const border = 5;
             const totalBorder = containerSize + 2 * border;
-
+            
             container.setAttribute("style", `
             display:flex; 
             flex-wrap: wrap; 
             box-sizing: border-box; 
             border: ${border}px solid gray;
             width: ${totalBorder}px; 
-            height: ${totalBorder}}px;`);
-            
-            for (let i=0; i < gridSize * gridSize; i++ ) {
+            height: ${totalBorder}px;`);
+
+            function setGrid (size) {
+                container.innerHTML = '';
+                const totalBorder = containerSize - 2 * border;
+                const squareSize = containerSize / size;
+                
+                for (let i=0; i < size * size; i++ ) {
                 const box = document.createElement("div");
                 box.setAttribute("style", `
                 box-sizing: border-box; 
@@ -36,11 +44,19 @@
                     box.style.backgroundColor = "#333";
                 });
                 container.appendChild(box);
-            }
-
-
+            }}
             
+            setGrid(gridSize);
 
+            numberButton.addEventListener("click", () => {
+                newGrid = prompt("Pick number between 1 to 100: ");
+                const parsedSize = parseInt(newGrid);
+                if (!isNaN(parsedSize) && parsedSize > 0 && parsedSize <= 100) {
+                setGrid(parsedSize);
+            } else {
+                alert("Invalid input! Please enter a number between 1 and 100.");
+            }
+            })
         </script>
 </body>
 </html>
