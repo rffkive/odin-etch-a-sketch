@@ -48,15 +48,21 @@
             
             setGrid(gridSize);
 
-            numberButton.addEventListener("click", () => {
-                newGrid = prompt("Pick number between 1 to 100: ");
-                const parsedSize = parseInt(newGrid);
-                if (!isNaN(parsedSize) && parsedSize > 0 && parsedSize <= 100) {
+            numberButton.addEventListener("click", () => 
+            {
+                let parsedSize;
+    
+                while (true) {
+                    const userInput = prompt("Enter squares per side (1-100):");
+                    if (userInput === null) 
+                        return;
+                    parsedSize = parseInt(userInput);
+                    if (parsedSize >= 1 && parsedSize <= 100) 
+                        break;
+                    alert("Invalid! Please enter between 1-100.");
+                }    
                 setGrid(parsedSize);
-            } else {
-                alert("Invalid input! Please enter a number between 1 and 100.");
-            }
-            })
+            });
         </script>
 </body>
 </html>
