@@ -31,9 +31,15 @@
                 border: 1px solid #ddd; 
                 width: ${squareSize}px; 
                 height: ${squareSize}px;`);
+
+                box.addEventListener ("mouseenter", (e) => {
+                    box.style.backgroundColor = "#333";
+                });
                 container.appendChild(box);
-                box.classList.add('square');
             }
+
+
+            
 
         </script>
 </body>
