@@ -13,12 +13,24 @@
             const gridSize = 16;
             const containerSize = 640;
             const squareSize = containerSize / gridSize;
+            const border = 5;
+            const totalBorder = containerSize + 2 * border;
 
-            container.setAttribute("style", `display:flex; flex-wrap: wrap; box-sizing: border-box; width: ${containerSize}px; height: ${containerSize}px;`);
+            container.setAttribute("style", `
+            display:flex; 
+            flex-wrap: wrap; 
+            box-sizing: border-box; 
+            border: ${border}px solid gray;
+            width: ${totalBorder}px; 
+            height: ${totalBorder}}px;`);
             
             for (let i=0; i < gridSize * gridSize; i++ ) {
                 const box = document.createElement("div");
-                box.setAttribute("style", `box-sizing: border-box; border: 1px solid; width: ${squareSize}px; height: ${squareSize}px;`);
+                box.setAttribute("style", `
+                box-sizing: border-box; 
+                border: 1px solid #ddd; 
+                width: ${squareSize}px; 
+                height: ${squareSize}px;`);
                 container.appendChild(box);
                 box.classList.add('square');
             }
